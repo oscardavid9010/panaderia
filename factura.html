@@ -1,0 +1,52 @@
+<html>
+<head>
+<style type="text/css"> 
+form{margin-left:0 auto;}
+
+input {width:250px;}
+button {width:100px; height:30px;}
+</style>
+<meta charset="utf-8">
+<title>Documento sin título</title>
+</head>
+
+<body>
+<header> <h1 align="center">Facturas</h1> </header>
+<div id="formulario"> 
+
+<table align="center">
+<pre>
+<form id="fom" action="factura.php"  method="post" target=""> 
+<label for="id">Ingrese el numero de la factura</label>
+<input type="text" id="id" name="id" placeholder="Id factura">
+
+<label for="docu">Ingrese el Documento del cliente</label>
+<input type="text" id="docu" name="docu" placeholder="Documento"> 
+
+<label for="serial">Ingrese el serial del producto</label>
+<input type="text" id="serial" name="serial" placeholder="Serial"> 
+
+<label for="cant">Ingrese la cantidad del producto</label>
+<input type="text" id="cant" name="cant" placeholder="Cantidad"> 
+
+<label for="pre">Ingrese el precio del producto</label>
+<input type="text" id="pre" name="pre" placeholder="Precio">
+
+<label for="nom">Ingrese el nombre del producto</label>
+<input type="text" id="nom" name="nom" placeholder="Nombre">
+
+<label for="fecha">Ingrese la fecha</label>
+<input type="text" id="fecha" name="fecha" placeholder="Fecha">
+ 
+<button type="submit"> Enviar </button>
+</form>
+</pre>
+</table>
+
+
+
+</div>
+
+<footer id="pie"> </footer>
+</body>
+</html>
