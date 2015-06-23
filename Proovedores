@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Proovedores</title>
+	</head>
+	
+	<body>
+		<div id="formularioProovedores">
+			<h1>Proovedores</h1>
+			<form>
+				Producto:
+				<input type="text" name="producto" value="producto" placeholder="Producto"/>
+				<br/><br/>
+				Nombre Empresa:
+				<input type="text" name="empresa" value="empresa" placeholder="Nombre Empresa"/>
+				<br/><br/>
+				<input type="submit" value="enviar">
+			</form>
+		</div>
+	</body>
+</html>
