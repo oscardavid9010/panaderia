@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Inventarios</title>
+</head>
+
+<body>
+<header align="center"><big>Inventarios</big></header>
+<form method="post" target="_self" action="inventario.php">
+<table width="200" class="inventario" align="center">
+  <tbody align="center">
+    <tr>
+      <td>Serial del Producto </td>
+      <td><input type="text" id="serial" name="serial" placeholder="Solo Numeros" required="required"></td>
+    </tr>
+    <tr>
+      <td> Nombre del Producto</td>
+      <td><input type="text" id="nombre" name="nombre" required="required"></td>
+    </tr>
+    <tr>
+      <td>Valor </td>
+      <td><input type="text" id="valor" name="valor" placeholder="Solo Numeros" required="required"></td>
+    </tr>
+    <tr>
+      <td>Cantidad </td>
+      <td><input type="text" id="cantidad" name="cantidad"  placeholder="Solo Numeros" required="required"></td>
+    </tr>
+    <tr>
+      <td>Nombre del Proveedor </td>
+      <td><input type="text" id="proveedor" name="proveedor" required="required"></td>
+    </tr>
+    <tr>
+      <td colspan="2" align="center"><input type="submit" value="Enviar Datos"></td> 
+    </tr>
+  </tbody>
+</table></form>
+
+</body>
+</html>
