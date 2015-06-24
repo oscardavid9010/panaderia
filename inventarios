@@ -6,7 +6,7 @@
 </head>
 
 <body>
-<header align="center"><big>Inventarios</big></header>
+<h1 align="center"><big>Inventarios</big></h1>
 <form method="post" target="_self" action="inventario.php">
 <table width="200" class="inventario" align="center">
   <tbody align="center">
