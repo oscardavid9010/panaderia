@@ -42,6 +42,13 @@ class conexion {
 echo '<h1><big>Cotizacion Insertada</big></h1>'; 
        
         }
+        function insertarcliente($documento, $nombre, $apellido, $correo, $telefono){
+		
+		 $query="insert into cliente(documento, nombre, apellido, correo, telefono) values ('".$documento."','".$nombre."','".$apellido."','".$correo."','".$telefono."')";
+		mysql_query($query);
+		echo '<h1><big>Registro Exitoso :)</big></h1>';
+		}
+}
 }
 
 
