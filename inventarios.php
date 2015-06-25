@@ -14,10 +14,11 @@ require_once('conexion.php');
 function base($serial, $nombre, $valor, $cantidad, $proveedor){
 		
 		$base=new conexion();
-		$base->constructor("localhost","admi","123456", "panaderia");
+		$base->constructor("localhost","root","123456", "panaderia");
 		$base->conectar();
 		$base->insertar ($serial, $nombre, $valor, $cantidad, $proveedor);
 		}
+
 function inventario(){
 		
 		$serial=$_POST["serial"];
