@@ -1,0 +1,109 @@
+CREATE TABLE `inventario` (
+  `serial_producto` varchar(45) NOT NULL,
+  `disponibilidad` varchar(20) NOT NULL,
+  `nombre_producto` varchar(45) NOT NULL,
+  `valor_producto` varchar(45) NOT NULL,
+  `id_proveedor` bigint(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `inventario`
+--
+
+INSERT INTO `inventario` (`serial_producto`, `disponibilidad`, `nombre_producto`, `valor_producto`, `id_proveedor`) VALUES
+('10', '20', 'jabon', '2000', 970);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `proveedor`
+--
+
+CREATE TABLE `proveedor` (
+  `id_proveedor` bigint(20) NOT NULL,
+  `producto` varchar(45) NOT NULL,
+  `nombre_empresa` varchar(45) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `proveedor`
+--
+
+INSERT INTO `proveedor` (`id_proveedor`, `producto`, `nombre_empresa`) VALUES
+(970, 'jabon', 'ariel');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `cliente`
+--
+ALTER TABLE `cliente`
+  ADD PRIMARY KEY (`documento`);
+
+--
+-- Indexes for table `cotizacion`
+--
+ALTER TABLE `cotizacion`
+  ADD PRIMARY KEY (`serial_producto`,`documento_cliente`),
+  ADD KEY `serial_fk` (`serial_producto`),
+  ADD KEY `docu_fk` (`documento_cliente`);
+
+--
+-- Indexes for table `factura`
+--
+ALTER TABLE `factura`
+  ADD PRIMARY KEY (`id`,`documento_cliente`,`serial_producto`),
+  ADD KEY `serial_fk` (`serial_producto`),
+  ADD KEY `docu_fk` (`documento_cliente`);
+
+--
+-- Indexes for table `inventario`
+--
+ALTER TABLE `inventario`
+  ADD PRIMARY KEY (`serial_producto`,`id_proveedor`),
+  ADD KEY `pro_fk` (`id_proveedor`);
+
+--
+-- Indexes for table `proveedor`
+--
+ALTER TABLE `proveedor`
+  ADD PRIMARY KEY (`id_proveedor`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `factura`
+--
+ALTER TABLE `factura`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `cotizacion`
+--
+ALTER TABLE `cotizacion`
+  ADD CONSTRAINT `cotizacion_ibfk_1` FOREIGN KEY (`serial_producto`) REFERENCES `inventario` (`serial_producto`),
+  ADD CONSTRAINT `cotizacion_ibfk_2` FOREIGN KEY (`documento_cliente`) REFERENCES `cliente` (`documento`);
+
+--
+-- Constraints for table `factura`
+--
+ALTER TABLE `factura`
+  ADD CONSTRAINT `factura_ibfk_1` FOREIGN KEY (`serial_producto`) REFERENCES `inventario` (`serial_producto`),
+  ADD CONSTRAINT `factura_ibfk_2` FOREIGN KEY (`documento_cliente`) REFERENCES `cliente` (`documento`);
+
+--
+-- Constraints for table `inventario`
+--
+ALTER TABLE `inventario`
+  ADD CONSTRAINT `inventario_ibfk_1` FOREIGN KEY (`id_proveedor`) REFERENCES `proveedor` (`id_proveedor`);
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
