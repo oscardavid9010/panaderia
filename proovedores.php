@@ -1,37 +1,31 @@
 <?php
-  class proovedor 
+
+  class conexion // Conexion a la base de datos
   {
-    private $producto;
-    private $nombreEmpresa;
-    public function inicializar($nom)
+    private $_servidor;
+    private $_usuario;
+    private $_clave;
+    private $_base;
+
+    function constructor($servidor, $usuario, $clave, $base)
     {
-      $this->producto = $nom;
+        $this->_servidor = $servidor;
+        $this->_usuario = $usuario;
+        $this->_clave = $clave;
+        $this->_base = $base;
     }
-    public function imprimir()
+
+    function conectar()
     {
-      echo $this->producto;
-      echo '<br>';
+        $conexion = mysql_connect($this->_servidor,$this->_usuario,$this->_clave)or die(mysql_error());
+        mysql_select_db($this->_base, $conexion)or die(mysql_error());
     }
-    public function nombreEmpresa($empresa)
+
+    function insertar($nombre, $empresa)
     {
-      $this->nombreEmpresa = $empresa;   
+        $query = "INSERT INTO proovedor(producto, nombre_empresa) VALUES ('".$producto."','".$empresa."')";
+        mysql_query($query);
     }
   }
 
-  $nombreEmpresa = new nombreEmpresa();
-  $nombreEmpresa->nombreEmpresa('');
-  $nombreEmpresa->imprimir();
-
-
-  $producto1 = new producto();
-  $producto1->inicializar('Arroz');
-  $producto1->imprimir();
-  
-  $producto2 = new producto();
-  $producto2->inicializar('Lenteja');
-  $producto2->imprimir();
-
-  $producto3 = new producto();
-  $producto3-> inicializar('Frijol ');
-  $producto3-> imprimir();
 ?>
