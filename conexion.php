@@ -48,6 +48,12 @@ echo '<h1><big>Cotizacion Insertada</big></h1>';
 		mysql_query($query);
 		echo '<h1><big>Registro Exitoso :)</big></h1>';
 		}
+		
+	function insertarProovedor($producto, $empresa)
+      	{
+  		$query = "INSERT INTO proovedor(producto, nombre_empresa) VALUES ('".$producto."','".$nombre_empresa."')";
+  		mysql_query($query);
+  	}
 }
 
 
