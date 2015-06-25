@@ -28,12 +28,20 @@ class conexion {
 		$conexion=mysql_connect($this->_servidor,$this->_usuario,$this->_clave)or die(mysql_error());
 		mysql_select_db($this->_base, $conexion)or die(mysql_error());
 		}
-	    function insertar ($serial, $nombre, $valor, $cantidad, $proveedor){
+    
+    function insertar ($serial, $nombre, $valor, $cantidad, $proveedor){
 		
-		 $query="insert into inventario(serial, nombre_producto, valor, cantidad, proveedor) values ('".$serial."','".$nombre."','".$valor."','".$cantidad."','".$proveedor."')";
+		 $query="insert into inventario(serial_producto, nombre_producto, valor_producto, disponibilidad, id_proveedor) values ('".$serial."','".$nombre."','".$valor."','".$cantidad."','".$proveedor."')";
 		mysql_query($query);
-		echo 'locotas esto sirvio';
+	      echo '<h1><big>Producto Insertado</big></h1>'; 
 		}
+
+    function insertarcotizacion($fecha,$documento,$serial,$cantidad,$precio){
+       $query="insert into cotizacion(fecha,documento,serial_producto,cantidad,precio)values('".$fecha."','".$documento."','".$serial."','".$cantidad."','".$precio."')";
+    	mysql_query($query);
+echo '<h1><big>Cotizacion Insertada</big></h1>'; 
+       
+        }
 }
 
 
