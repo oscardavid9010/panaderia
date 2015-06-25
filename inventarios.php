@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html>
 <head>
@@ -9,27 +10,24 @@
 </body>
 </html>
 <?php 
-class conexion{
-	function conecta(){
-$conexion=mysql_connect("localhost","root","123456");
-$db=mysql_select_db("panaderia");
-
-	}}
-	class inventario{
-	function inserta(){
+require_once('conexion.php');
+function base($serial, $nombre, $valor, $cantidad, $proveedor){
+		
+		$base=new conexion();
+		$base->constructor("localhost","admi","123456", "panaderia");
+		$base->conectar();
+		$base->insertar ($serial, $nombre, $valor, $cantidad, $proveedor);
+		}
+function inventario(){
+		
 		$serial=$_POST["serial"];
 		$nombre=$_POST["nombre"];
 		$valor=$_POST["valor"];
 		$cantidad=$_POST["cantidad"];
 		$proveedor=$_POST["proveedor"];
-		$insercion=mysql_query("insert into inventario values ('".$serial."','".$nombre."','".$valor."','".$cantidad."','".$proveedor."')");
-		echo '<h1>Datos Ingresados Correctamente</h1>';
+		base($serial, $nombre, $valor, $cantidad, $proveedor);
 		}
 	
-	}
-	@$conexion= new conexion;
-   @$conecta->conecta();
-   @$recoge= new inventario;
-   @$inserta->inserta();
-
+	inventario();
+	
 ?>
