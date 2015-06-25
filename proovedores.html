@@ -3,19 +3,21 @@
 		<meta charset="UTF-8">
 		<title>Proovedores</title>
 	</head>
-	
+
 	<body>
+
 		<div id="formularioProovedores">
 			<h1>Proovedores</h1>
-			<form>
-				Producto:
+			<form action="validarProocedor.php" method="POST" name="proovedores">
+				<h6>Producto:</h6>
 				<input type="text" name="producto" value="producto" placeholder="Producto"/>
 				<br/><br/>
-				Nombre Empresa:
+				<h6>Nombre Empresa:</h6>
 				<input type="text" name="empresa" value="empresa" placeholder="Nombre Empresa"/>
 				<br/><br/>
 				<input type="submit" value="enviar">
 			</form>
 		</div>
+
 	</body>
 </html>
