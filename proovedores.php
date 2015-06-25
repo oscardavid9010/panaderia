@@ -1,31 +1,22 @@
 <?php
+  require_once('conexion.php');
 
-  class conexion // Conexion a la base de datos
+  class proovedores
   {
-    private $_servidor;
-    private $_usuario;
-    private $_clave;
-    private $_base;
-
-    function constructor($servidor, $usuario, $clave, $base)
-    {
-        $this->_servidor = $servidor;
-        $this->_usuario = $usuario;
-        $this->_clave = $clave;
-        $this->_base = $base;
-    }
-
-    function conectar()
-    {
-        $conexion = mysql_connect($this->_servidor,$this->_usuario,$this->_clave)or die(mysql_error());
-        mysql_select_db($this->_base, $conexion)or die(mysql_error());
-    }
-
-    function insertar($nombre, $empresa)
-    {
-        $query = "INSERT INTO proovedor(producto, nombre_empresa) VALUES ('".$producto."','".$empresa."')";
-        mysql_query($query);
-    }
+      function principal($producto, $empresa)
+      {
+          principal = new conexion();
+          principal->constructor("localhost","root","123456","panaderia");
+          principal->conectar();
+          principal->insertarProovedor($producto, $empresa);
+      }
+      function proovedores()
+      {
+          $producto = $_POST["producto"];
+		      $empresa = $_POST["empresa"];
+		      principal($producto, $empresa);
+      }
+      proovedores();
   }
 
 ?>
